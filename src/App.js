@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Amplify, { Auth } from 'aws-amplify';
 import aws_exports from './aws-exports';
-import { withAuthenticator } from '@aws-amplify/ui-react';
+import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
 Amplify.configure(aws_exports);
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-           GOODBYE
+           <AmplifySignOut />
           </a>
         </header>
       </div>
@@ -29,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App, true);
+export default withAuthenticator(App, { includeGreetings: true });
